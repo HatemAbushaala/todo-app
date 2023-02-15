@@ -1,11 +1,14 @@
 import React from 'react';
 
-export default function AddTodoForm({ handleSubmit }) {
+export default function AddTodoForm(
+  {
+    // some props
+  }
+) {
   const onSubmit = (e) => {
     e.preventDefault();
     const title = e.target[0].value;
     // TODO write code to add new todo to list of todos
-    handleSubmit(title);
     e.target.reset();
   };
   return (

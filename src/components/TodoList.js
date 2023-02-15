@@ -10,32 +10,11 @@ export default function TodoList() {
     <div style={{ width: '50vh', margin: '0 auto' }}>
       <h1>Todo List</h1>
       <hr />
-      <AddTodoForm
-        handleSubmit={(title) =>
-          setTodos([...todos, { title, isChecked: false }])
-        }
-      />
+      <AddTodoForm />
       <hr />
       {todos.map((item, index) => {
         return (
-          <TodoItem
-            onCheckChange={(check) => {
-              setTodos(
-                todos.map((_item) => {
-                  if (_item.title === item.title) {
-                    _item.isChecked = check;
-                  }
-                  return _item;
-                })
-              );
-            }}
-            handleDelete={() =>
-              setTodos(todos.filter((i) => i.title !== item.title))
-            }
-            title={item.title}
-            isChecked={item.isChecked}
-            key={index}
-          />
+          <TodoItem title={item.title} isChecked={item.isChecked} key={index} />
         );
       })}
     </div>
